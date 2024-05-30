@@ -32,16 +32,6 @@ def increment_visits():
     with open(data_dir_path / "visits", "w") as f:
         f.write(str(visits + 1))
 
-index_requests_total = Counter(
-    'index_requests_total',
-    'The number of requests to index page.'
-)
-
-index_request_duration_seconds = Summary(
-    'index_request_duration_seconds',
-    'The duration of requests to index page.'
-)
-
 
 @app.route("/")
 @index_request_duration_seconds.time()
